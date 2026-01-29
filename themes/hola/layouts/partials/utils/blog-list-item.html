@@ -1,0 +1,40 @@
+{{- $linkTarget := .linkTarget -}}
+{{- $ := index . "$" -}}
+{{- $pages := $.Pages -}}
+{{- $limit := -1 -}}
+{{- with $linkTarget -}}
+    {{- if isset (index $pages 0).Site.Params "limitentrieslimit" -}}
+        {{- $limit = (index $pages 0).Site.Params.limitEntriesLimit -}}
+    {{- end -}}
+{{- end -}}
+{{- if ge $limit 0 -}}
+    {{- $pages = $pages | first $limit -}}
+{{- end -}}
+{{- with $pages -}}
+<div class="blog-links">
+    {{ range . }}
+    <div class="column link" data-module="LinkHit, CursorTarget" data-cursorname="link" data-sortindex="1">
+        <div class="container">
+            <div class="line-transparent" data-module="ColorItemBackgroundToForeground"></div>
+            <div class="items container-with-padding">
+                <a href="{{ .Permalink }}" _parent="blank" style="    display: flex;">
+                    <div class="row row-1 client font-style-11 pd-1" data-module="ColorItemTextToForeground">{{ .PublishDate.Format "Jan, 2006" }}</div>
+                    <div class="row row-2 project font-style-11 pd-1" data-module="ColorItemTextToForeground">{{ .Title }}</div>
+                    <div class="row row-3 year font-style-11 pd-1" data-module="ColorItemTextToForeground">{{- with .Params.tags -}}
+                   
+                        {{- range . }}
+                          {{- $tag := urlize . -}}
+                          <span title="{{ . }}" class="ho_tag">#
+                            {{- . }}&nbsp;
+                          </span>
+                        {{- end }}
+                    
+                    {{- end }}</div>
+
+                </a>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+</div>
+{{ end }}

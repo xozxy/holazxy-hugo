@@ -1,0 +1,36 @@
+{{- $linkTarget := .linkTarget -}}
+{{- $ := index . "$" -}}
+{{- $pages := $.Pages -}}
+{{- $limit := -1 -}}
+{{- with $linkTarget -}}
+    {{- if isset (index $pages 0).Site.Params "limitentrieslimit" -}}
+        {{- $limit = (index $pages 0).Site.Params.limitEntriesLimit -}}
+    {{- end -}}
+{{- end -}}
+{{- if ge $limit 0 -}}
+    {{- $pages = $pages | first $limit -}}
+{{- end -}}
+{{- with $pages -}}
+    <div class="list-group list flex flex-wrap columns">
+        {{ range . }}
+            <div class="list-part col-md-6 flex-even">
+                <div class="hovereffect">
+                    <a href="{{ .Permalink }}">
+                        <img class="img-fluid portfolio-img" src="{{ .Params.image | absURL }}"
+                            alt="{{ .Title }}">
+                        <div class="overlay">
+                            <span class="overlay-text">{{ .Title }}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {{ end }}
+        {{ if and (gt $limit 0) (gt (len $.Pages) $limit) }}
+            {{ with $linkTarget }}
+                <li class="list-read-more">
+                    <a href="{{ $linkTarget.RelPermalink }}">{{ i18n "readMore" }} »</a>
+                </li>
+            {{ end }}
+        {{ end }}
+    </div>
+{{ end }}

@@ -1,0 +1,33 @@
+{{ define "main" }}
+    {{ if and (eq .Kind "section") .Content }}
+        {{ partial "pages/post.html" . }}
+    {{ else }}
+        <main class="main list" id="main">
+            <div class="main-inner">
+                <div class="content list-group">
+                    <div class="list-group list flex flex-wrap columns top">
+                        <div class="line" data-module="ColorItemBackgroundToForeground"></div>
+                        <div class="container-with-padding info">
+                            <div class="column column-1">
+                                <h1 class="font-style-1 header-title" data-module="ColorItemTextToForeground">{{ .Title }}</h1>
+                            </div>
+                           <div class="column column-2">
+                                <p class="font-style-6 year column-2" data-module="ColorItemTextToForeground">{{- dateFormat "2006" (time .Site.Params.siteCreatedTime) -}} – {{- now.Format "2006" -}}</p>
+                            </div>
+                        </div>
+                    </div>
+                <section class="bottom mg-4" data-module="CoreCollapseModule">
+                    <div class="line-transparent" data-module="ColorItemBackgroundToForeground"></div>
+                    <div class="column container-with-padding categories">
+                        <div class="row row-1 client font-style-9 " data-module="ColorItemTextToForeground">Time</div>
+                        <div class="row row-2 project font-style-9" data-module="ColorItemTextToForeground">Project</div>
+                        <div class="row row-3 year font-style-9" data-module="ColorItemTextToForeground">Tags</div>
+                    </div>
+                    {{ partial "utils/blog-list-item.html" (dict "$" .) }}
+                </section>
+                     {{ .Scratch.Delete "pages" }}
+                </div>
+            </div>
+        </main>
+    {{ end }}
+{{ end }}

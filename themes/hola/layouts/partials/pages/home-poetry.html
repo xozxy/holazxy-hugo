@@ -1,0 +1,45 @@
+<main class="home main">
+    <div class="poetry">
+        {{ range .Site.Params.homePoetry }}
+        <p>{{ partial "utils/markdownify.html" (dict "$" $ "raw" . "isContent" false) }}</p>
+        {{ end }}
+
+        <h1>Welcome!</h1>
+        <p>
+            👋 Hi, I’m Avery Lin, a product designer who prototypes with code.<br><a href="/about/" style="color:#767676">About this demo →</a>
+        </p>
+        <p>
+            🌿 A small, fictional portfolio for case studies.<br><a href="/work/" style="color:#767676">View work →</a>
+        </p>
+        <div class="list-group list flex flex-wrap columns top">
+            <div class="line" data-module="ColorItemBackgroundToForeground"></div>
+            <div class="container-with-padding info">
+                <div class="column column-1">
+                    <h1 class="font-style-1 header-title" data-module="ColorItemTextToForeground">Work</h1>
+                </div>
+               <div class="column column-2">
+                    <p class="font-style-6 year column-2" data-module="ColorItemTextToForeground">{{- dateFormat "2006" (time .Site.Params.siteCreatedTime) -}} – {{- now.Format "2006" -}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-group list flex flex-wrap columns mg-4">
+            {{ with .Site.GetPage "/work" }}
+            {{ range first 2 (sort .Data.Pages "Date" "desc" (where .Pages ".Params.private" "!=" true))}}
+            <div class="list-part col-md-6 flex-even">
+                <div class="hovereffect">
+                    <a href="{{ .Permalink }}">
+                        <img class="img-fluid portfolio-img" src="{{ .Params.image | absURL }}"
+                            alt="{{ .Title }}">
+                        <div class="overlay">
+                            <span class="overlay-text">{{ .Title }}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {{ end }}
+            {{ end }}
+        </div>
+    </div>
+    
+</main>

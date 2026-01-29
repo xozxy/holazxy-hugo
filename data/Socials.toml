@@ -1,0 +1,27 @@
+[[socials]]
+    id = "rss"
+    url = "/rss.xml"
+    icon = "rss"
+    title = "RSS"
+    weight = 1
+
+[[socials]]
+    id = "email"
+    url = "mailto:hello@example.com"
+    icon = "envelope"
+    title = "Email"
+    weight = 2
+
+[[socials]]
+    id = "github"
+    url = "https://example.com/github"
+    icon = "github"
+    title = "GitHub"
+    weight = 3
+
+[[socials]]
+    id = "linkedin"
+    url = "https://example.com/linkedin"
+    icon = "linkedin"
+    title = "LinkedIn"
+    weight = 4

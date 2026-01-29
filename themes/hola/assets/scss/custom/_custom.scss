@@ -1,0 +1,404 @@
+.lock-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.footer-inner {
+  padding-bottom: 2em;
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.t-info {
+  text-align: left;
+  flex-grow: 0;
+  color: var(--main-text-color);
+  margin-right: 2em;
+}
+
+.copyright {
+  text-align: right;
+  flex-grow: 1;
+}
+
+@media (max-width: $maxWidth) {
+  .list-item {
+    display: block;
+  }
+
+  .list-item-time {
+    text-align: left;
+  }
+}
+
+.post-body details {
+  padding: 1rem;
+  border: 1px solid var(--color-contrast-lower);
+  border-radius: .25rem;
+  margin: 1em 0;
+}
+
+.tags__list {
+  display: flex;
+}
+
+.tag__item {
+  margin-right: 5%;
+  text-transform: capitalize;
+
+  .tag__link {
+    color: var(--secondary-color);
+
+    &:hover {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.book-columns {
+  margin-left: -1rem;
+  margin-right: -1rem;
+
+  >div {
+    margin: 1rem 0;
+    min-width: 10rem;
+    padding: 0 1rem;
+  }
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-even {
+  flex: 1 1;
+}
+
+/* Image Hover Effect */
+
+.portfolio-img {
+  width: 100%;
+  height: 250px;
+  display: block;
+  object-fit: cover;
+}
+
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+
+  .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+  }
+
+  .overlay-text {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--color-contrast-higher);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+  }
+
+  &:hover .overlay-text {
+    opacity: 1;
+  }
+
+  &:hover img {
+    opacity: .05;
+  }
+
+  img {
+    display: block;
+    position: relative;
+    max-width: none;
+    width: 100%;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
+
+.columns {
+  margin-left: -2%;
+  margin-right: -2%;
+
+  >div {
+    margin: 1rem 0;
+    min-width: 10rem;
+    padding: 0 2%;
+  }
+}
+
+@media (min-width: $minWidth) {
+  .col-md-6 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 46%;
+    -ms-flex: 0 0 46%;
+    flex: 0 0 46%;
+    max-width: 46%;
+  }
+}
+
+@media (max-width: $minWidth) {
+  .col-md-6 {
+    flex: 0 0 96%;
+    max-width: 96%;
+  }
+}
+
+
+/* new */
+
+.col-md-8 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 50%;
+  -ms-flex: 0 0 50%;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.info {
+  margin-top: 14px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.line,
+.line-transparent {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-contrast-high);
+  opacity: .9;
+}
+
+.line {
+  margin-left: 2% !important;
+  margin-right: 2% !important;
+}
+
+.font-style-6 {
+  line-height: 110%;
+  letter-spacing: -.03em;
+  font-size: calc(20px + (100vw - ((100vw - 850px)/6 + 15px)*2 - 1600px)*0.0005*20);
+}
+
+.list-group .info .column:nth-child(1) .header-title {
+  margin-top: calc(-4.5px + (100vw - ((100vw - 850px)/6 + 15px)*2 - 1600px)*0.0005*-4.5);
+}
+
+.mg-4 {
+  margin-top: 4em;
+}
+
+
+.font-style-9 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 76%;
+  letter-spacing: -.038em;
+}
+
+.bottom {
+  .column {
+    width: 100%;
+    position: relative;
+    display: flex;
+
+    .row {
+      flex-shrink: 0;
+    }
+
+    .row-1 {
+      width: calc((100% + 15px)/12*2);
+    }
+
+    .row-2 {
+      width: calc((100% + 15px)/12*5);
+    }
+
+    .row-3 {
+      position: relative;
+    }
+
+    .row-4 {
+      padding-top: 0;
+      opacity: 1;
+      width: calc((100% + 15px)/12*4);
+    }
+
+    .container {
+      width: 100%;
+      position: relative;
+
+      .items {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  .categories {
+    position: relative;
+    padding-top: 18px;
+    padding-bottom: 60px;
+    display: flex;
+  }
+}
+
+.blog-links {
+  position: relative;
+  width: 100%;
+
+  .pd-1 {
+    padding: 1em 0;
+  }
+}
+
+.top {
+  .column-1 {
+    width: calc((100% + 15px)/12*7);
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 5px;
+  }
+
+  .column-2 {
+    width: calc((100% + 15px)/12*3);
+    padding-top: calc(4px + (100vw - ((100vw - 850px)/6 + 15px)*2 - 1600px)*0.0005*4);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: $minWidth) {
+  .bottom {
+    .categories {
+      display: none;
+    }
+
+    .column {
+      .row-1 {
+        width: 100%;
+        color: var(--color-contrast-medium);
+        ;
+      }
+
+      a {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .row-2 {
+        font-size: 24px;
+        width: 100%;
+      }
+
+      .row-3 {
+        width: 100%;
+
+        .ho_tag {
+          color: var(--color-contrast-medium);
+        }
+      }
+    }
+  }
+}
+
+blockquote.quote-center {
+  position: relative;
+  border-left: none;
+  padding-left: 0;
+
+  p {
+    text-align: center !important;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
+
+  &::before {
+    position: absolute;
+    left: 0;
+    content: '“';
+    color: var(--color-contrast-low);
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: -0.42em;
+  }
+
+  &::after {
+    position: absolute;
+    right: 0;
+    content: '”';
+    color: var(--color-contrast-low);
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: -0.7em;
+  }
+}
+
+.col-3 {
+  width: 33.333%;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.mb2 {
+  margin-bottom: 1rem;
+}
+
+.col-9 {
+  width: 66.666%;
+}
+
+@media (max-width: 768px) {
+  .col-sm-12 {
+    width: 100%;
+  }
+}
+
+.pb4 {
+  padding-bottom: 3rem;
+}
